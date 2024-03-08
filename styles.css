@@ -1,0 +1,22 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.parallax-section {
+    height: 100vh; /* Full viewport height */
+    background-image: C:\Users\ryanp\Desktop\Screenshots\907796.png
+    background-attachment: fixed; /* Fixed background */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.parallax-content {
+    color: rgb(63, 2, 2);
+    text-align: center;
+}
