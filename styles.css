@@ -58,7 +58,8 @@ section {
     text-align: center;
     place-items: center;
     align-content: center;
-    min-height: 70vh;
+    min-height: 80vh;
+    min-width: 90vb;
 }
 
 
@@ -101,7 +102,7 @@ section {
     border-radius: 16px;
     cursor: pointer;
     display: flex;
-    height: 250px;
+    height: 300px;
     flex-direction: column;
     position: relative;
     width: 300px;  
@@ -157,7 +158,8 @@ section {
   .card-image {
     align-items: center;
     display: flex;
-    height: 140px;
+    height: 100%;
+    width: 100%;
     justify-content: center;
     overflow: hidden;
     border-radius: 8px;
@@ -238,7 +240,7 @@ section {
     font-weight: bold;
  }
 
- /*BAACKGROUND LAYERS */
+ /*BACKGROUND LAYERS 
  .layer1 {
   background-image: url('./stacked-waves-haikei.svg');
   height: 80vh; 
@@ -256,7 +258,7 @@ section {
   background-position: center; 
   background-repeat: repeat;
  }
-
+*/
 
   /*CONTACT FORMS */
  .form-row {
@@ -285,4 +287,12 @@ section {
   border: 1px solid #f2f2f2; 
   padding: 10px; 
    text-align: left;
+ }
+
+ .about-me {
+  width: 50%;
+ }
+
+ .projects {
+  width: 100%;
  }
