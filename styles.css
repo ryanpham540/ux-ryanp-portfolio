@@ -17,13 +17,16 @@ body {
     padding: 16px;
     margin: 0px;
     width: 100%;
+    flex: auto;
+    flex-direction: column;
 }
    
 /* CONTAINER*/
 .container {
   display: flex;
   justify-content: center; 
-  align-items: center; /* Aligns items vertically in the center */
+  align-items: center;
+  text-align: left; 
 }
 
 /* H AND TEXT ELEMENTS*/
@@ -50,6 +53,7 @@ p {
   font-size: 16px;
   padding: 8px;
   margin: 4px;
+  width: 70%;
 }
 
 /* SECTION ANIMATION*/
@@ -67,8 +71,8 @@ section {
 .hidden {
     opacity: 0;
     filter: blur(10px);
-    transition: all 1s;
-    transform: translateY(5%);
+    transition: all 1.25s cubic-bezier(0.25, 0.1, 0.25, 1);
+    transform: translateX(-100%);
 }
 
 @media(prefers-reduced-motion) {
@@ -86,8 +90,8 @@ section {
 #cards {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;  
-    max-width: 916px;
+    gap: 16px;  
+    max-width: 70%;
     width: calc(100% - 20px);
     align-content: center;
     justify-content: center;
@@ -105,9 +109,19 @@ section {
     height: 300px;
     flex-direction: column;
     position: relative;
-    width: 300px;  
+    width: 45%;  
   }
   
+  .card: nth-child (2){
+    transition-delay: 200ms;
+  }
+  .card: nth-child (3){
+    transition-delay: 400ms;
+  }
+  .card: nth-child (4)
+  {
+    transition-delay: 600ms;
+  }
   .card:hover::before {
     opacity: 1;
   }
@@ -170,6 +184,7 @@ section {
     font-size: 1.1em;
     line-height: 20px;
   }
+
   
 /* BUTTONS*/
   .btn {
@@ -240,26 +255,6 @@ section {
     font-weight: bold;
  }
 
- /*BACKGROUND LAYERS 
- .layer1 {
-  background-image: url('./stacked-waves-haikei.svg');
-  height: 80vh; 
-  width: 100%; 
-  background-size: cover; 
-  background-position: center; 
-  background-repeat: repeat;
- }
-
- .layer2 {
-  background-image: url('./stacked-waves-haikei-2.svg');
-  height: 80vh; 
-  width: 100%; 
-  background-size: cover; 
-  background-position: center; 
-  background-repeat: repeat;
- }
-*/
-
   /*CONTACT FORMS */
  .form-row {
   margin-bottom: 10px;
@@ -271,14 +266,14 @@ section {
   padding: 10px;
   margin-top: 5px;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 8px;
 }
 
 .grid-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* Creates 2 columns */
   grid-template-rows: repeat(2, 1fr); /* Creates 2 rows */
-  gap: 10px; /* Optional: adds space between grid items */
+  gap: 16px; /* Optional: adds space between grid items */
   justify-items: start;
   text-align: left;
  }
@@ -290,7 +285,7 @@ section {
  }
 
  .about-me {
-  width: 50%;
+  width: 60%;
  }
 
  .projects {
