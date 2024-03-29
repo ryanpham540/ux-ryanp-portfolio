@@ -1,0 +1,333 @@
+
+@import url("https://fonts.google.com/specimen/Montserrat");
+
+/* BIG BODY ELEMENTS*/
+:root {
+    --bg-color: rgb(20, 20, 20);
+    --card-color: rgb(23, 23, 23);
+  }
+  
+
+body {
+    justify-content: center;
+    align-items: center;
+    color: #f2f2f2;
+    font-family: Montserrat;
+    background-color: #181818;
+    padding: 16px;
+    margin: 0px;
+    width: 100%;
+    flex: auto;
+    flex-direction: column;
+}
+   
+/* CONTAINER*/
+.container {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  text-align: left; 
+}
+
+/* H AND TEXT ELEMENTS*/
+h1 {
+    font-size: 64px;
+    padding: 8px;
+    margin: 8px;
+}
+
+h2 {
+    font-size: 48px;
+    padding: 8px;
+    margin: 8px;
+}
+
+h3 {
+    font-size: 20px;
+    padding: 8px;
+    margin: 8px;
+}
+
+p {
+  align-content: center;
+  font-size: 16px;
+  padding: 8px;
+  margin: 4px;
+  width: 70%;
+}
+
+/* SECTION ANIMATION*/
+section {
+    display: grid;
+    text-align: center;
+    place-items: center;
+    align-content: center;
+    min-height: 100vh;
+    min-width: 90vw;
+}
+
+
+
+.hidden {
+    opacity: 0;
+    filter: blur(10px);
+    transition: all 1.25s cubic-bezier(0.25, 0.1, 0.25, 1);
+    transform: translateX(-100%);
+}
+
+@media(prefers-reduced-motion) {
+    transition: none;
+}
+
+.show {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateY(0);
+}
+
+/* PROJECT CARDS*/
+
+#cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;  
+    max-width: 70%;
+    width: calc(100% - 20px);
+    align-content: center;
+    justify-content: center;
+  }
+  
+  #cards:hover > .card::after {
+    opacity: 1;
+  }
+  
+  .card {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    cursor: pointer;
+    display: flex;
+    height: 300px;
+    flex-direction: column;
+    position: relative;
+    width: 45%;  
+  }
+  
+ .card:nth-child(2) {
+    transition-delay: 200ms;
+}
+.card:nth-child(3) {
+    transition-delay: 400ms;
+}
+.card:nth-child(4) {
+    transition-delay: 600ms;
+}
+
+  
+  .card::before,
+  .card::after {
+    border-radius: inherit;
+    content: "";
+    height: 100%;
+    left: 0px;
+    opacity: 0;
+    position: absolute;
+    top: 0px;
+    transition: opacity 500ms;
+    width: 100%;
+  }
+  
+  .card::before {
+    background: radial-gradient(
+      800px circle at var(--mouse-x) var(--mouse-y), 
+      rgba(255, 255, 255, 0.06),
+      transparent 40%
+    );
+    z-index: 3;
+  }
+  
+  .card::after {  
+    background: radial-gradient(
+      300px circle at var(--mouse-x) var(--mouse-y), 
+      rgba(171,32,253, 1),
+      transparent 80%
+    );
+    z-index: 1;
+  }
+  
+  .card > .card-content {
+    background-color: var(--card-color);
+    border-radius: inherit;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    inset: 1px;
+    padding: 8px;
+    position: absolute;
+    z-index: 2;
+  }
+  
+  .card-image {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+ 
+
+  .card-info-title > h3 {
+    font-size: 1.1em;
+    line-height: 20px;
+  }
+
+  
+/* BUTTONS*/
+.btn {
+  margin: 16px;
+  padding: 15px 40px;
+  width: 240px;
+  border: none;
+  outline: none;
+  color: #161616; /* Inverted text color */
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 12px;
+  color: #f2f2f2;
+  font-family: Montserrat;
+  background-color: #FFF; /* Inverted background color */
+ }
+ .btn::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #333; /* Adjusted for contrast with the new background */
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+ }
+ 
+ .btn::before {
+  content: "";
+  background: rgba(171,32,253, 1); /* Adjusted gradient colors */
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 600%;
+  z-index: -1;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  filter: blur(8px);
+  animation: glowing 20s linear infinite;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
+  opacity: 0;
+ }
+ .btn:hover::before {
+  opacity: 1;
+ }
+ 
+ .btn:active:after {
+  background: transparent;
+ }
+ 
+ .btn:active {
+  color: #FFF; /* Adjusted text color for active state */
+  font-weight: bold;
+ }
+ 
+
+ .btn-2 {
+    margin: 16px;
+    padding: 15px 40px;
+    width: 240px;
+    border: none;
+    outline: none;
+    color: #f2f2f2;
+    background-color: rgba(171,32,253, 1);
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 12px;
+    font-family: Montserrat;
+ }
+
+ /* BUTTON-GLOW */
+  .btn-2::before {
+    content: "";
+    background: rgba(171,32,253, 1);
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 600%;
+    z-index: -1;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    filter: blur(8px);
+    animation: glowing 20s linear infinite;
+    transition: opacity .3s ease-in-out;
+    border-radius: 8px;
+    opacity: 0;
+ }
+
+ @keyframes glowing {
+    0% {background-position: 0 0;}
+    50% {background-position: 400% 0;}
+    100% {background-position: 0 0;}
+ }
+
+ /*BUTTON-HOVER */
+.btn-2:hover::before {
+    opacity: 1;
+ }
+
+.btn-2:active:after {
+    background: transparent;
+ }
+
+ .btn-2:active {
+    color: #f2f2f2;
+    font-weight: bold;
+ }
+
+  /*CONTACT FORMS */
+ .form-row {
+  margin-bottom: 10px;
+}
+
+.form-input {
+  display: block;
+  width: 50vh;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Creates 2 columns */
+  grid-template-rows: repeat(2, 1fr); /* Creates 2 rows */
+  gap: 16px; /* Optional: adds space between grid items */
+  justify-items: start;
+  text-align: left;
+ }
+ 
+ .grid-item {
+  border: 1px solid #f2f2f2; 
+  padding: 10px; 
+   text-align: left;
+ }
+
+ .about-me {
+  width: 60%;
+ }
+
+ .projects {
+  width: 100%;
+ }
+
